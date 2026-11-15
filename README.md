@@ -94,9 +94,8 @@ Requests other than `GET` must send header `x-csrf-token` with the token that a 
 
 ## Development
 
-- `web/designer.html` is the designer page. After a change, run `python tools/gen_ui.py` to regenerate `ZCL_ABAPPDF_UI`.
-- `serve.ps1` serves the page locally at `http://127.0.0.1:8877/`; enter the service URL in Settings.
-- After changing a demo form, export it to `forms/` and run `python tools/gen_demo_form.py` to regenerate `ZCL_ABAPPDF_DEMO=>TEMPLATE` and `TEMPLATE_AR`.
+- `web/designer.html` is the source of the designer page. `ZCL_ABAPPDF_UI` holds the same page as base64 chunks.
+- The demo forms in `ZCL_ABAPPDF_DEMO` are the exports in `forms/`.
 - Unit tests: `ZCL_ABAPPDF_BINDER`, `ZCL_ABAPPDF_RENDERER` and `ZCL_ABAPPDF_CODES`.
 
 ## License
