@@ -4,8 +4,7 @@ CLASS zcl_abappdf_font DEFINITION
   CREATE PUBLIC.
 
   PUBLIC SECTION.
-    "Noto Naskh Arabic is used under the SIL Open Font License.
-    "Regenerate with abap-cloud/tools/gen_font.py.
+    "Glyphs and metrics of a Noto Naskh Arabic subset, used under the SIL Open Font License 1.1.
     CLASS-METHODS contains
       IMPORTING iv_text TYPE string
       RETURNING VALUE(rv_yes) TYPE abap_bool.
