@@ -1,0 +1,13 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_ABAPPDF_TRAVEL alias Travel
+{
+  use association _Booking;
+  use action print;
+}
+
+define behavior for ZC_ABAPPDF_BOOKING alias Booking
+{
+  use association _Travel;
+}

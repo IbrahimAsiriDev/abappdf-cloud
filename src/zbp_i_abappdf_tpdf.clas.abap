@@ -1,0 +1,9 @@
+CLASS zbp_i_abappdf_tpdf DEFINITION
+  PUBLIC
+  ABSTRACT
+  FINAL
+  FOR BEHAVIOR OF zi_abappdf_tpdf.
+ENDCLASS.
+
+CLASS zbp_i_abappdf_tpdf IMPLEMENTATION.
+ENDCLASS.

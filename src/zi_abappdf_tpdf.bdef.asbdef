@@ -1,0 +1,12 @@
+managed implementation in class zbp_i_abappdf_tpdf unique;
+strict ( 2 );
+
+define behavior for ZI_ABAPPDF_TPDF alias Pdf
+persistent table zabappdf_tpdf
+lock master
+authorization master ( global )
+{
+  create;
+  update;
+  field ( readonly : update ) travel_id;
+}

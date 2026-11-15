@@ -1,0 +1,65 @@
+@Metadata.layer: #CORE
+annotate view ZC_ABAPPDF_TRAVEL with
+{
+  @UI.facet: [{
+    id: 'Travel',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Travel',
+    position: 10,
+    targetQualifier: 'Travel'
+  }]
+  @UI.lineItem: [{ position: 10, label: 'Travel' },
+                 { type: #FOR_ACTION, dataAction: 'print', label: 'Print PDF', invocationGrouping: #ISOLATED }]
+  @UI.identification: [{ position: 10, label: 'Travel', qualifier: 'Travel' }]
+  travel_id;
+
+  @UI.hidden: true
+  pdf_filename;
+
+  @UI.hidden: true
+  pdf_mimetype;
+
+  @UI.lineItem: [{ position: 90, label: 'PDF' }]
+  pdf_content;
+
+  @UI.hidden: true
+  print_url;
+
+  @UI.hidden: true
+  print_label;
+
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20, qualifier: 'Travel' }]
+  agency_id;
+
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30, qualifier: 'Travel' }]
+  customer_id;
+
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40, qualifier: 'Travel' }]
+  begin_date;
+
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50, qualifier: 'Travel' }]
+  end_date;
+
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60, qualifier: 'Travel' }]
+  status;
+
+  @UI.lineItem: [{ position: 70 }]
+  @UI.identification: [{ position: 70, qualifier: 'Travel' }]
+  total_price;
+
+  @UI.lineItem: [{ position: 80 }]
+  @UI.identification: [{ position: 80, qualifier: 'Travel' }]
+  currency_code;
+
+  @UI.identification: [{ position: 90, qualifier: 'Travel' }]
+  description;
+
+  @UI.identification: [{ position: 100, qualifier: 'Travel' }]
+  booking_fee;
+}

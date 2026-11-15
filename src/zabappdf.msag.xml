@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZABAPPDF</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>abapPDF messages</STEXT>
+   </T100A>
+   <T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>001</MSGNR><TEXT>Form &amp;1 already exists</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>002</MSGNR><TEXT>Could not insert form &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>003</MSGNR><TEXT>Form &amp;1 does not exist</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>004</MSGNR><TEXT>Enter a transport request of letters and digits</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>005</MSGNR><TEXT>Form &amp;1 cannot be recorded on a request</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>006</MSGNR><TEXT>Could not delete form &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>007</MSGNR><TEXT>Version limit &amp;1 reached</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>008</MSGNR><TEXT>Could not save version of &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>009</MSGNR><TEXT>Form &amp;1 has no template</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>010</MSGNR><TEXT>Version &amp;1 does not exist</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>011</MSGNR><TEXT>Config parameter name is required</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>012</MSGNR><TEXT>Config value is too long</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>013</MSGNR><TEXT>Form ID must contain only A-Z, 0-9, and underscore</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>014</MSGNR><TEXT>Template exceeds &amp;1 characters</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>015</MSGNR><TEXT>Value is longer than &amp;1 characters</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>016</MSGNR><TEXT>Choose a transport request</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>017</MSGNR><TEXT>Transport service for &amp;1 is not available</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>018</MSGNR><TEXT>&amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>019</MSGNR><TEXT>JSON body is required</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>020</MSGNR><TEXT>JSON body must be an object</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>021</MSGNR><TEXT>Margins must be whole numbers between 0 and &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>022</MSGNR><TEXT>Business data JSON is required</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>023</MSGNR><TEXT>Business data is not valid JSON</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>024</MSGNR><TEXT>Business data must be a JSON object</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>025</MSGNR><TEXT>Unknown data source &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>026</MSGNR><TEXT>Travel does not exist</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>027</MSGNR><TEXT>Document &amp;1 does not exist</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>028</MSGNR><TEXT>QR code text is too long (&amp;1 bytes)</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>029</MSGNR><TEXT>Unsupported page size &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>030</MSGNR><TEXT>Orientation must be &amp;1 or &amp;2</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>031</MSGNR><TEXT>Margins must be between 0 and &amp;1 mm</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>032</MSGNR><TEXT>Margins leave no printable page area</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>033</MSGNR><TEXT>Unclosed &amp;1 in template</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>034</MSGNR><TEXT>Unclosed block &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>035</MSGNR><TEXT>Expected &amp;1 but found &amp;2</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>036</MSGNR><TEXT>Unknown template field: &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>037</MSGNR><TEXT>Unknown template field in &amp;1: &amp;2</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>038</MSGNR><TEXT>JSON error: &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>039</MSGNR><TEXT>Gotenberg destination is not configured</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>040</MSGNR><TEXT>Gotenberg HTTP &amp;1: &amp;2</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>041</MSGNR><TEXT>Gotenberg call failed: &amp;1</TEXT></T100>
+    <T100><SPRSL>E</SPRSL><ARBGB>ZABAPPDF</ARBGB><MSGNR>042</MSGNR><TEXT>Response is not a PDF</TEXT></T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

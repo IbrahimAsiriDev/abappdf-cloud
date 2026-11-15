@@ -1,0 +1,5 @@
+@EndUserText.label: 'abapPDF travel'
+define service ZUI_ABAPPDF_TRAVEL {
+  expose ZC_ABAPPDF_TRAVEL  as Travel;
+  expose ZC_ABAPPDF_BOOKING as Booking;
+}

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TABL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD02V>
+    <TABNAME>ZABAPPDF_TMPL</TABNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <TABCLASS>TRANSP</TABCLASS>
+    <CLIDEP>X</CLIDEP>
+    <DDTEXT>abapPDF Cloud template version</DDTEXT>
+    <CONTFLAG>A</CONTFLAG>
+    <EXCLASS>1</EXCLASS>
+   </DD02V>
+   <DD09L>
+    <TABNAME>ZABAPPDF_TMPL</TABNAME>
+    <AS4LOCAL>A</AS4LOCAL>
+    <TABKAT>1</TABKAT>
+    <TABART>APPL1</TABART>
+    <BUFALLOW>N</BUFALLOW>
+   </DD09L>
+   <DD03P_TABLE>
+    <DD03P>
+     <FIELDNAME>CLIENT</FIELDNAME>
+     <KEYFLAG>X</KEYFLAG>
+     <NOTNULL>X</NOTNULL>
+     <DATATYPE>CLNT</DATATYPE>
+     <LENG>000003</LENG>
+     <DDTEXT>Client</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>FORM_ID</FIELDNAME>
+     <KEYFLAG>X</KEYFLAG>
+     <NOTNULL>X</NOTNULL>
+     <DATATYPE>CHAR</DATATYPE>
+     <LENG>000030</LENG>
+     <DDTEXT>Form ID</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>VERSION</FIELDNAME>
+     <KEYFLAG>X</KEYFLAG>
+     <NOTNULL>X</NOTNULL>
+     <DATATYPE>NUMC</DATATYPE>
+     <LENG>000004</LENG>
+     <DDTEXT>Version</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>HTML_CONTENT</FIELDNAME>
+     <DATATYPE>STRG</DATATYPE>
+     <DDTEXT>HTML body fragment</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>CSS_CONTENT</FIELDNAME>
+     <DATATYPE>STRG</DATATYPE>
+     <DDTEXT>CSS including print rules</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>HEADER_HTML</FIELDNAME>
+     <DATATYPE>STRG</DATATYPE>
+     <DDTEXT>Header HTML fragment</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>FOOTER_HTML</FIELDNAME>
+     <DATATYPE>STRG</DATATYPE>
+     <DDTEXT>Footer HTML fragment</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>PAGE_SIZE</FIELDNAME>
+     <DATATYPE>CHAR</DATATYPE>
+     <LENG>000010</LENG>
+     <DDTEXT>A4 A3 A5 LETTER LEGAL</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>ORIENTATION</FIELDNAME>
+     <DATATYPE>CHAR</DATATYPE>
+     <LENG>000001</LENG>
+     <DDTEXT>P portrait or L landscape</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>MARGIN_TOP</FIELDNAME>
+     <DATATYPE>INT4</DATATYPE>
+     <LENG>000010</LENG>
+     <DDTEXT>Top margin px</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>MARGIN_RIGHT</FIELDNAME>
+     <DATATYPE>INT4</DATATYPE>
+     <LENG>000010</LENG>
+     <DDTEXT>Right margin px</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>MARGIN_BOTTOM</FIELDNAME>
+     <DATATYPE>INT4</DATATYPE>
+     <LENG>000010</LENG>
+     <DDTEXT>Bottom margin px</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>MARGIN_LEFT</FIELDNAME>
+     <DATATYPE>INT4</DATATYPE>
+     <LENG>000010</LENG>
+     <DDTEXT>Left margin px</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>SAMPLE_JSON</FIELDNAME>
+     <DATATYPE>STRG</DATATYPE>
+     <DDTEXT>Sample JSON for designer preview</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>IS_ACTIVE</FIELDNAME>
+     <DATATYPE>CHAR</DATATYPE>
+     <LENG>000001</LENG>
+     <DDTEXT>Active version flag</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>CHANGED_BY</FIELDNAME>
+     <DATATYPE>CHAR</DATATYPE>
+     <LENG>000012</LENG>
+     <DDTEXT>Changed by</DDTEXT>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>CHANGED_AT</FIELDNAME>
+     <DATATYPE>UTCLONG</DATATYPE>
+     <LENG>000027</LENG>
+     <DECIMALS>000007</DECIMALS>
+     <DDTEXT>Changed at</DDTEXT>
+    </DD03P>
+   </DD03P_TABLE>
+  </asx:values>
+ </asx:abap>
+</abapGit>

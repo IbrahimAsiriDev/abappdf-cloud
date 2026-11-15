@@ -1,0 +1,22 @@
+managed implementation in class zbp_i_abappdf_travel unique;
+strict ( 2 );
+
+define behavior for ZI_ABAPPDF_TRAVEL alias Travel
+persistent table /dmo/travel
+lock master
+authorization master ( global )
+{
+  field ( readonly ) print_url, print_label, pdf_filename, pdf_mimetype, pdf_content;
+  association _Booking { }
+  action print result [1] $self;
+  side effects { action print affects $self; }
+}
+
+define behavior for ZI_ABAPPDF_BOOKING alias Booking
+persistent table /dmo/booking
+lock dependent by _Travel
+authorization dependent by _Travel
+{
+  field ( readonly ) travel_id;
+  association _Travel { }
+}
