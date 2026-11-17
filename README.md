@@ -15,10 +15,10 @@ This is the ABAP Cloud edition of [abapPDF](https://github.com/IbrahimProg/abapp
 
 ## Installation
 
-1. In ABAP Development Tools create package `ZABAPPDF_CLOUD` (ABAP language version *ABAP for Cloud Development*).
+1. In ABAP Development Tools create package `ZABAPPDF_CLOUD` (ABAP language version *ABAP for Cloud Development*). On the SAP BTP trial, use `ZLOCAL` as super package and software component.
 2. Link this repository to the package with the abapGit plug-in for ADT and pull.
-3. Activate all objects.
-4. Create the HTTP service `ZABAPPDF_HTTP` with handler class `ZCL_ABAPPDF_HTTP` (*New > Other ABAP Repository Object > Connectivity > HTTP Service*).
+3. Activate all objects (*Ctrl+Shift+F3*): the abapGit plug-in for ADT pulls objects without activating them.
+4. **Create the HTTP service by hand.** abapGit does not transport HTTP services, and the designer and the HTTP API need one: create `ZABAPPDF_HTTP` with handler class `ZCL_ABAPPDF_HTTP` (*New > Other ABAP Repository Object > Connectivity > HTTP Service*). The editor shows its URL; open it in a browser. On SAP BTP the service works right away, without *Publish Locally*.
 5. For the RAP demo: create service binding `ZUI_ABAPPDF_TRAVEL_O4` (OData V4 - UI) for service definition `ZUI_ABAPPDF_TRAVEL` and publish it. The demo uses the flight reference data (`/DMO/TRAVEL`, `/DMO/BOOKING`).
 
 **On-premise (S/4HANA 2022 or later)**: an HTTP service created in ADT gets no SICF node of its own. Two more steps are needed:
