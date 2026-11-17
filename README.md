@@ -21,10 +21,10 @@ This is the ABAP Cloud edition of [abapPDF](https://github.com/IbrahimProg/abapp
 4. **Create the HTTP service by hand.** abapGit does not transport HTTP services, and the designer and the HTTP API need one: create `ZABAPPDF_HTTP` with handler class `ZCL_ABAPPDF_HTTP` (*New > Other ABAP Repository Object > Connectivity > HTTP Service*). The editor shows its URL; open it in a browser. On SAP BTP the service works right away, without *Publish Locally*.
 5. For the RAP demo: create service binding `ZUI_ABAPPDF_TRAVEL_O4` (OData V4 - UI) for service definition `ZUI_ABAPPDF_TRAVEL` and publish it. The demo uses the flight reference data (`/DMO/TRAVEL`, `/DMO/BOOKING`).
 
-**On-premise (S/4HANA 2022 or later)**: an HTTP service created in ADT gets no SICF node of its own. Two more steps are needed:
+**On-premise (S/4HANA 2022 or later)**: an HTTP service created in ADT gets no SICF node of its own; it runs below `/sap/bc/http/sap`. Two more steps are needed:
 
-- In transaction `SICF`, activate the nodes `/sap/bc/http` and `/sap/bc/http/sap` (this node only, not the subtree).
 - In transaction `UCON_HTTP_SERVICES`, search `ZABAPPDF_HTTP` and choose **Activate**.
+- In transaction `SICF`, check that the nodes `/sap/bc/http` and `/sap/bc/http/sap` are active. If they are inactive (grey), as on the ABAP Platform trial, activate them (this node only, not the subtree). Otherwise every service below them answers *403 Forbidden*.
 
 ## Getting started
 
