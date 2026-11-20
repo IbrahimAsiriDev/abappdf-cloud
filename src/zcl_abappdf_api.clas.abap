@@ -195,7 +195,17 @@ CLASS zcl_abappdf_api IMPLEMENTATION.
       RETURN.
     ENDIF.
     DATA(lv_text) = json_text( ir_node = ir_widget iv_name = 'text' ).
-    IF lv_text IS INITIAL.
+    DATA(lv_fill) = to_lower( json_text( ir_node = ir_widget iv_name = 'fill' ) ).
+    DATA(lv_border_w) = json_text( ir_node = ir_widget iv_name = 'borderW' ).
+    DATA(lv_border_c) = json_text( ir_node = ir_widget iv_name = 'borderColor' ).
+    IF lv_fill = `transparent`.
+      CLEAR lv_fill.
+    ENDIF.
+    IF lv_border_w = `0`.
+      CLEAR lv_border_w.
+    ENDIF.
+    "Shapes (rectangle, line) have no text but still print their fill and border.
+    IF lv_text IS INITIAL AND lv_fill IS INITIAL AND lv_border_w IS INITIAL.
       RETURN.
     ENDIF.
     DATA(lv_x) = json_text( ir_node = ir_widget iv_name = 'x' ).
@@ -231,6 +241,19 @@ CLASS zcl_abappdf_api IMPLEMENTATION.
     ENDIF.
     IF lv_bold = '1' OR lv_bold = 'true'.
       lv_style = lv_style && 'font-weight:bold;'.
+    ENDIF.
+    DATA(lv_italic) = json_text( ir_node = ir_widget iv_name = 'italic' ).
+    IF lv_italic = '1' OR lv_italic = 'true'.
+      lv_style = lv_style && 'font-style:italic;'.
+    ENDIF.
+    IF lv_fill IS NOT INITIAL.
+      lv_style = lv_style && |background:{ lv_fill };|.
+    ENDIF.
+    IF lv_border_w IS NOT INITIAL.
+      IF lv_border_c IS INITIAL.
+        lv_border_c = zcl_abappdf_config=>widget_color.
+      ENDIF.
+      lv_style = lv_style && |border:{ lv_border_w }px solid { lv_border_c };|.
     ENDIF.
     DATA(lv_fmt) = json_text( ir_node = ir_widget iv_name = 'dateFmt' ).
     IF lv_fmt IS INITIAL.

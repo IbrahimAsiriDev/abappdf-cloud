@@ -12,6 +12,8 @@ CLASS ltcl_engine DEFINITION FINAL
     METHODS widget_past_page_moves_next FOR TESTING RAISING zcx_abappdf.
     METHODS long_text_wraps FOR TESTING RAISING zcx_abappdf.
     METHODS table_cell_style FOR TESTING RAISING zcx_abappdf.
+    METHODS margins_move_content FOR TESTING RAISING zcx_abappdf.
+    METHODS empty_box_draws_fill FOR TESTING RAISING zcx_abappdf.
     METHODS tm_y
       IMPORTING
         iv_text        TYPE string
@@ -203,6 +205,31 @@ CLASS ltcl_engine IMPLEMENTATION.
     ENDWHILE.
     lv_y = substring( val = lv_head off = lv_from + 1 len = lv_end - lv_from - 1 ).
     rv_y = lv_y.
+  ENDMETHOD.
+
+  METHOD margins_move_content.
+    " Designer positions start at the printable area: left:0 with a 10 mm margin prints at 28.35 pt.
+    DATA ls_page TYPE zcl_abappdf_renderer=>ty_page.
+    ls_page-page_size = 'A4'.
+    ls_page-orientation = 'P'.
+    ls_page-margin_top = 10.
+    ls_page-margin_right = 10.
+    ls_page-margin_bottom = 10.
+    ls_page-margin_left = 10.
+    DATA(lv_pdf) = zcl_abappdf_renderer=>render(
+      iv_html = '<div style="position:absolute;left:0px;top:0px;width:200px;height:24px;">Hello</div>'
+      is_page = ls_page ).
+    DATA(lv_text) = cl_abap_conv_codepage=>create_in( )->convert( lv_pdf ).
+    cl_abap_unit_assert=>assert_true( act = xsdbool( lv_text CS |q\n28.35 | ) ).
+  ENDMETHOD.
+
+  METHOD empty_box_draws_fill.
+    " A rectangle from the designer has no text but prints its fill and border.
+    DATA(lv_pdf) = zcl_abappdf_renderer=>render(
+      iv_html = '<div style="position:absolute;left:0px;top:0px;width:100px;height:40px;background:#0000ff;border:1px solid #ff0000;"></div>' ).
+    DATA(lv_text) = cl_abap_conv_codepage=>create_in( )->convert( lv_pdf ).
+    cl_abap_unit_assert=>assert_true( act = xsdbool( lv_text CS '0.00 0.00 1.00 rg' ) ).
+    cl_abap_unit_assert=>assert_true( act = xsdbool( lv_text CS '1.00 0.00 0.00 RG' ) ).
   ENDMETHOD.
 
 ENDCLASS.

@@ -284,7 +284,9 @@ CLASS zcl_abappdf_renderer IMPLEMENTATION.
     DATA lv_max TYPE i.
     DATA lv_page TYPE i.
     DATA lv_count TYPE i.
-    DATA lv_top TYPE decfloat34.
+    DATA lv_margin_x TYPE decfloat34.
+    DATA lv_margin_y TYPE decfloat34.
+    DATA lv_body_h_px TYPE decfloat34.
     DATA lv_break TYPE decfloat34.
     DATA lv_local TYPE decfloat34.
     DATA lv_delta TYPE decfloat34.
@@ -308,9 +310,14 @@ CLASS zcl_abappdf_renderer IMPLEMENTATION.
       EXPORTING is_page = ls_page
       IMPORTING ev_width = lv_mm_w ev_height = lv_mm_h ).
     lv_page_h_px = lv_mm_h * zcl_abappdf_config=>px_per_inch / zcl_abappdf_config=>mm_per_inch.
-    lv_top = ls_page-margin_top * zcl_abappdf_config=>px_per_inch / zcl_abappdf_config=>mm_per_inch.
-    IF lv_top <= 0.
-      lv_top = zcl_abappdf_config=>default_top_px.
+    "Designer positions are relative to the printable area: content boxes are laid out on
+    "pages of the printable height and moved by the left and top margins when they are drawn.
+    lv_margin_x = ls_page-margin_left * zcl_abappdf_config=>px_per_inch / zcl_abappdf_config=>mm_per_inch.
+    lv_margin_y = ls_page-margin_top * zcl_abappdf_config=>px_per_inch / zcl_abappdf_config=>mm_per_inch.
+    lv_body_h_px = lv_page_h_px
+      - ( ls_page-margin_top + ls_page-margin_bottom ) * zcl_abappdf_config=>px_per_inch / zcl_abappdf_config=>mm_per_inch.
+    IF lv_body_h_px <= 0.
+      lv_body_h_px = lv_page_h_px.
     ENDIF.
 
     lt_boxes = collect( iv_html = iv_html iv_page_h = lv_page_h_px ).
@@ -368,15 +375,15 @@ CLASS zcl_abappdf_renderer IMPLEMENTATION.
       APPEND ls_box TO lt_boxes.
     ENDIF.
 
-    IF lv_page_h_px > 0.
+    IF lv_body_h_px > 0.
       lv_found = abap_false.
       LOOP AT lt_boxes INTO ls_box WHERE fixed = abap_false AND flow = 0.
-        IF ls_box-h <= 0 OR ls_box-h >= lv_page_h_px.
+        IF ls_box-h <= 0 OR ls_box-h >= lv_body_h_px.
           CONTINUE.
         ENDIF.
-        lv_page = trunc( ls_box-y / lv_page_h_px ).
-        lv_local = ls_box-y - lv_page * lv_page_h_px.
-        IF lv_local + ls_box-h > lv_page_h_px.
+        lv_page = trunc( ls_box-y / lv_body_h_px ).
+        lv_local = ls_box-y - lv_page * lv_body_h_px.
+        IF lv_local + ls_box-h > lv_body_h_px.
           IF lv_found = abap_false OR ls_box-y < lv_break.
             lv_break = ls_box-y.
             lv_found = abap_true.
@@ -384,8 +391,8 @@ CLASS zcl_abappdf_renderer IMPLEMENTATION.
         ENDIF.
       ENDLOOP.
       IF lv_found = abap_true.
-        lv_page = trunc( lv_break / lv_page_h_px ).
-        lv_delta = ( lv_page + 1 ) * lv_page_h_px + lv_top - lv_break.
+        lv_page = trunc( lv_break / lv_body_h_px ).
+        lv_delta = ( lv_page + 1 ) * lv_body_h_px - lv_break.
         LOOP AT lt_boxes INTO ls_box WHERE fixed = abap_false AND flow = 0 AND y >= lv_break.
           ls_box-y = ls_box-y + lv_delta.
           MODIFY lt_boxes FROM ls_box.
@@ -394,9 +401,13 @@ CLASS zcl_abappdf_renderer IMPLEMENTATION.
     ENDIF.
 
     LOOP AT lt_boxes INTO ls_box.
-      IF ls_box-fixed = abap_false AND lv_page_h_px > 0 AND ls_box-y >= lv_page_h_px.
-        ls_box-page = trunc( ls_box-y / lv_page_h_px ).
-        ls_box-y = ls_box-y - ls_box-page * lv_page_h_px.
+      IF ls_box-fixed = abap_false AND lv_body_h_px > 0 AND ls_box-y >= lv_body_h_px.
+        ls_box-page = trunc( ls_box-y / lv_body_h_px ).
+        ls_box-y = ls_box-y - ls_box-page * lv_body_h_px.
+      ENDIF.
+      IF ls_box-fixed = abap_false.
+        ls_box-x = ls_box-x + lv_margin_x.
+        ls_box-y = ls_box-y + lv_margin_y.
       ENDIF.
       IF ls_box-page > lv_max.
         lv_max = ls_box-page.
